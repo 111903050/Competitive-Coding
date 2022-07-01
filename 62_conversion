@@ -1,0 +1,40 @@
+// { Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+class Solution {
+  public:
+    int editDistance(string s, string t) {
+        int S1=s.size();
+        int S2=t.size();
+        if(S1>S2){
+            swap(S1,S2);
+            swap(s,t);
+        }
+        int count=0;
+        for(auto i: t){
+            int n;
+            if(t[i]!=s[i]){
+                t.erase(0,i);
+                count++;
+            }
+        }
+        return count;
+    }
+};
+
+// { Driver Code Starts.
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        string s, t;
+        cin >> s >> t;
+        Solution ob;
+        int ans = ob.editDistance(s, t);
+        cout << ans << "\n";
+    }
+    return 0;
+}
+  // } Driver Code Ends
